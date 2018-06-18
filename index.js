@@ -1,10 +1,21 @@
 const express = require('express');
 const app = express();
 const contacts = require('./contacts');
+const expressHbs = require('express-handlebars');
+
+app.engine('.hbs', expressHbs({
+    defaultLayout: 'layout',
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 //Home page - shows user a welcome message
 app.get('/', (req, res) => {
-    res.send('Hello, njoy');
+    // res.send('Hello, njoy');
+    res.render('home', {
+        message: 'Welcome to the Contacts app!',
+        headerText: 'Hello Handlebars!'
+    });
 })
 
 //Contacts list page: shows user all contacts
@@ -19,12 +30,13 @@ app.get('/contacts/:id', (req, res) => {
     let contact = contacts.users.find((user) => {
         return user.id === theID
     });
-    
+
     //Check if 'contact is valid
     //is it undefined or a real object?
 
     res.send(contact);
 })
+
 
 app.listen(8888, () => {
     console.log('Your express app is running at http://localhost:8888');
