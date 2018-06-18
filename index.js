@@ -29,21 +29,24 @@ app.get('/contacts', (req,res) => {
 //Contacts detail page: show the user all info for one contact
 app.get('/contacts/:id', (req, res) => {
     // res.send(`You are viewing details for ${req.params.id}.`)
-    // let theID = req.params.id;
-    let theFirstName = req.params.id;
-    //Check if 'contact is valid
-    //is it undefined or a real object?
+    let theID = req.params.id;
+    // let theFirstName = req.params.id;
     let contact = contacts.users.find((user) => {
-        return user.firstName === theFirstName;
+        return user.id === theID;
     }
 );
-    res.render('id', {
-        // contactArray: contact.elements
-        firstName: contact.firstName,
-        lastName: contact.lastName,
-        phone: contact.phone,
-        email: contact.email
-    });
+//Check if 'contact is valid
+//is it undefined or a real object?
+    if (contact) {
+        res.render('id', {
+            contact
+        });
+    } else {
+        //redirect
+        res.redirect('.')
+        // res.send(`<h3>Contact ID ${theID} does not exist!</h3>`);
+    }
+     
 
     // res.send(contact);
 })
