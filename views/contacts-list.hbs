@@ -1,0 +1,11 @@
+
+<h3>Here are the contacts:</h3>
+<ul>
+{{#each contactsArray}}
+    <li>
+        <a href="/contacts/{{id}}">
+            {{firstName}} {{lastName}}
+        </a> 
+    </li>
+{{/each}}
+</ul>
