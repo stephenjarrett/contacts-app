@@ -1,0 +1,24 @@
+{
+    "users": [{
+            "id": "1f09fbeod",
+            "firstName": "Chris",
+            "lastName": "Aquino",
+            "phone": "6781234567",
+            "email": "ihateradishes@gmail.com"
+        },
+        {
+            "id": "v09erbnd",
+            "firstName": "Jonathan",
+            "lastName": "Martin",
+            "phone": "4041234567",
+            "email": "ilovecheesecake@gmail.com"
+        },
+        {
+            "id": "boifudsf5",
+            "firstName": "Jake",
+            "lastName": "Hadden",
+            "phone": "1234567890",
+            "email": "jakelovesjava@gmail.com"
+        }
+    ]
+}
